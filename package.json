@@ -1,0 +1,21 @@
+{
+  "name": "node-file-manager",
+  "version": "1.0.0",
+  "description": "This repository is the part of nodejs-assignments https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/file-manager/assignment.md",
+  "type": "module",
+  "scripts": {
+    "start": "node src/main.js -- --username=SheshkoPavel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SheshkoPavel/node-file-manager.git"
+  },
+  "keywords": [
+    "nodejs",
+    "assignments",
+    "SheshkoPavel"
+  ],
+  "author": "SheshkoPavel",
+  "license": "ISC",
+  "homepage": "https://github.com/SheshkoPavel/node-file-manager#readme"
+}
