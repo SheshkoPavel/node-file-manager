@@ -3,7 +3,51 @@ import { dirname } from 'node:path'
 import { access } from 'node:fs/promises'
 
 import path from 'node:path'
+import readlinePromises from 'node:readline/promises'
 import EventEmitter from 'node:events'
-import { cpus, release, version } from 'node:os';
+import { cpus, release, version, homedir } from 'node:os';
 import { createReadStream, createWriteStream } from 'node:fs';
 import { createHash } from 'node:crypto';
+
+const currentFile = fileURLToPath(import.meta.url);
+const currentDirectory = dirname(currentFile);
+
+// console.log('homedir <-------', homedir());
+// console.log('currentFile <-------', currentFile);
+// console.log('currentDirectory <-------', currentDirectory);
+
+// console.log('process.cwd() <-------', process.cwd());
+process.chdir(homedir());
+// console.log('process.cwd() <-------', process.cwd());
+
+const cleanProcessArgv = process.argv.slice(2);
+
+const args = Object.fromEntries(cleanProcessArgv.map(argument => {
+    const [key, value] = argument.split('=');
+
+    return [key, value]
+}));
+
+const userName = args['--username'] ? args['--username'] : 'Unknown person';
+
+console.log(`Welcome to the File Manager, ${userName}`);
+
+console.log('You are currently in ', process.cwd());
+
+const eventEmitter = new EventEmitter();
+eventEmitter.setMaxListeners(Infinity);
+
+
+const rl = readlinePromises.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+
+rl.on('line', (line) => {
+    console.log(`Received: ${line}`);
+  })
+  .on('SIGINT', () => rl.close())
+  .on('close', () => {
+    console.log(`Thank you for using File Manager, ${userName}, goodbye!`);
+    process.nextTick(() => process.exit());
+  })
