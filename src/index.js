@@ -10,6 +10,7 @@ import { createReadStream, createWriteStream } from 'node:fs';
 import { createHash } from 'node:crypto';
 
 import { parseArguments } from './utils/index.js'
+import { commandLineFunction } from './functions/commandLine.js'
 
 const currentFile = fileURLToPath(import.meta.url);
 const currentDirectory = dirname(currentFile);
@@ -37,9 +38,7 @@ const rl = readlinePromises.createInterface({
     output: process.stdout,
   });
 
-rl.on('line', (line) => {
-    console.log(`Received: ${line}`);
-  })
+rl.on('line', commandLineFunction.bind(rl, eventEmitter))
   .on('SIGINT', () => rl.close())
   .on('close', () => {
     console.log(`Thank you for using File Manager, ${userName}, goodbye!`);
