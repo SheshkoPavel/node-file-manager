@@ -10,7 +10,10 @@ import { createReadStream, createWriteStream } from 'node:fs';
 import { createHash } from 'node:crypto';
 
 import { parseArguments } from './utils/index.js'
-import { commandLineFunction } from './functions/commandLine.js'
+import {
+    commandLineFunction,
+    lsFunction,
+ }  from './functions/index.js'
 
 const currentFile = fileURLToPath(import.meta.url);
 const currentDirectory = dirname(currentFile);
@@ -32,6 +35,20 @@ console.log('You are currently in ', process.cwd());
 const eventEmitter = new EventEmitter();
 eventEmitter.setMaxListeners(Infinity);
 
+eventEmitter
+    .on('ls', lsFunction)
+//     .on('up', upFunction)
+//     .on('cd', cdFunction)
+//     .on('cat', catFunction)
+//     .on('add', addFunction)
+//     .on('rn', rnFunction)
+//     .on('cp', cpFunction)
+//     .on('mv', mvFunction)
+//     .on('rm', rmFunction)
+//     .on('os', osFunction)
+//     .on('hash', hashFunction)
+//     .on('compress', compressFunction)
+//     .on('decompress', decompressFunction);
 
 const rl = readlinePromises.createInterface({
     input: process.stdin,
