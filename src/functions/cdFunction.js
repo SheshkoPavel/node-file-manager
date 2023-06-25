@@ -5,7 +5,7 @@ export const cdFunction = async ([path]) => {
     try {
         process.chdir(path);
         printCurrentDirectory();
-    } catch (e) {
+    } catch (err) {
         console.error(ERROR_MESSAGE);
     }
 }

@@ -11,7 +11,7 @@ export const  lsFunction = async () => {
 
         const filesToTable = files.map(file => {
             if (file.isFile()) return {Name: file.name, Type: 'file'}
-            if (file.isDirectory) return {Name: file.name, Type: 'directory'}
+            if (file.isDirectory()) return {Name: file.name, Type: 'directory'}
             return {Name: file.name, Type: 'unknown'}
         });
 

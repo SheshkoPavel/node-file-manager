@@ -1,8 +1,6 @@
 import { fileURLToPath } from 'node:url'
 import { dirname } from 'node:path'
-import { access } from 'node:fs/promises'
 
-import path from 'node:path'
 import readlinePromises from 'node:readline/promises'
 import EventEmitter from 'node:events'
 import { cpus, release, version, homedir } from 'node:os';
@@ -14,6 +12,7 @@ import {
     commandLineFunction,
     lsFunction,
     cdFunction,
+    upFunction,
  }  from './functions/index.js'
 
 const currentFile = fileURLToPath(import.meta.url);
@@ -39,7 +38,7 @@ eventEmitter.setMaxListeners(Infinity);
 eventEmitter
     .on('ls', lsFunction)
     .on('cd', cdFunction)
-//     .on('up', upFunction)
+    .on('up', upFunction)
 //     .on('cat', catFunction)
 //     .on('add', addFunction)
 //     .on('rn', rnFunction)
