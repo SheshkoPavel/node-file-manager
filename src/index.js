@@ -15,6 +15,7 @@ import {
     upFunction,
     catFunction,
     addFunction,
+    rnFunction,
  }  from './functions/index.js'
 
 const currentFile = fileURLToPath(import.meta.url);
@@ -43,7 +44,7 @@ eventEmitter
     .on('up', upFunction)
     .on('cat', catFunction)
     .on('add', addFunction)
-//     .on('rn', rnFunction)
+    .on('rn', rnFunction)
 //     .on('cp', cpFunction)
 //     .on('mv', mvFunction)
 //     .on('rm', rmFunction)

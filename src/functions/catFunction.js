@@ -1,4 +1,4 @@
-import { sep } from 'node:path'
+import { resolve } from 'node:path'
 import { createReadStream } from 'node:fs';
 
 import { ERROR_MESSAGE } from "../constants.js"
@@ -8,7 +8,7 @@ export const catFunction = async ([path]) => {
     try {
         if (! await isFileExist(path)) throw new Error();
 
-        const readableStream = createReadStream(`${process.cwd()}${sep}${path}`, 'utf8');
+        const readableStream = createReadStream(`${resolve(path)}`, 'utf8');
         readableStream.on('data', (data) => {
             process.stdout.write(data);
         });
