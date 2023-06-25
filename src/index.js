@@ -16,18 +16,13 @@ import {
     catFunction,
     addFunction,
     rnFunction,
+    cpFunction,
  }  from './functions/index.js'
 
 const currentFile = fileURLToPath(import.meta.url);
 const currentDirectory = dirname(currentFile);
 
-// console.log('homedir <-------', homedir());
-// console.log('currentFile <-------', currentFile);
-// console.log('currentDirectory <-------', currentDirectory);
-
-// console.log('process.cwd() <-------', process.cwd());
 process.chdir(homedir());
-// console.log('process.cwd() <-------', process.cwd());
 
 const args = parseArguments();
 const userName = args['--username'] ? args['--username'] : 'Unknown person';
@@ -45,7 +40,7 @@ eventEmitter
     .on('cat', catFunction)
     .on('add', addFunction)
     .on('rn', rnFunction)
-//     .on('cp', cpFunction)
+    .on('cp', cpFunction)
 //     .on('mv', mvFunction)
 //     .on('rm', rmFunction)
 //     .on('os', osFunction)
