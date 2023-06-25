@@ -18,6 +18,7 @@ import {
     rnFunction,
     cpFunction,
     mvFunction,
+    rmFunction,
  }  from './functions/index.js'
 
 const currentFile = fileURLToPath(import.meta.url);
@@ -43,7 +44,7 @@ eventEmitter
     .on('rn', rnFunction)
     .on('cp', cpFunction)
     .on('mv', mvFunction)
-//     .on('rm', rmFunction)
+    .on('rm', rmFunction)
 //     .on('os', osFunction)
 //     .on('hash', hashFunction)
 //     .on('compress', compressFunction)
