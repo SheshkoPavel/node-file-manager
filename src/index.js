@@ -22,6 +22,7 @@ import {
     osFunction,
     hashFunction,
     compressFunction,
+    decompressFunction,
  }  from './functions/index.js'
 
 const currentFile = fileURLToPath(import.meta.url);
@@ -51,7 +52,7 @@ eventEmitter
     .on('os', osFunction)
     .on('hash', hashFunction)
     .on('compress', compressFunction)
-//     .on('decompress', decompressFunction);
+    .on('decompress', decompressFunction);
 
 const rl = readlinePromises.createInterface({
     input: process.stdin,
