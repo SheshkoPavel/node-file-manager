@@ -1,6 +1,9 @@
 import { resolve } from 'node:path'
 import { readdir } from 'node:fs/promises'
 
+import { ERROR_MESSAGE } from '../constants.js';
+import { printCurrentDirectory } from "../utils/index.js";
+
 export const  lsFunction = async () => {
     try{
         const currentDirectory = resolve(process.cwd());
@@ -19,8 +22,8 @@ export const  lsFunction = async () => {
         });
 
         console.table(filesToTableSorted);
-        console.log('You are currently in ', process.cwd());
+        printCurrentDirectory();
     } catch (err) {
-        console.error('Operation failed');
+        console.error(ERROR_MESSAGE);
     }
 }

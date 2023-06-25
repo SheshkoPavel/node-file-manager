@@ -9,7 +9,7 @@ import { cpus, release, version, homedir } from 'node:os';
 import { createReadStream, createWriteStream } from 'node:fs';
 import { createHash } from 'node:crypto';
 
-import { parseArguments } from './utils/index.js'
+import { parseArguments, printCurrentDirectory } from './utils/index.js'
 import {
     commandLineFunction,
     lsFunction,
@@ -31,7 +31,7 @@ const args = parseArguments();
 const userName = args['--username'] ? args['--username'] : 'Unknown person';
 
 console.log(`Welcome to the File Manager, ${userName}`);
-console.log('You are currently in ', process.cwd());
+printCurrentDirectory();
 
 const eventEmitter = new EventEmitter();
 eventEmitter.setMaxListeners(Infinity);
