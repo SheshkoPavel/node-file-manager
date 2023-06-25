@@ -7,7 +7,7 @@ import { printCurrentDirectory } from "../utils/index.js";
 export const  lsFunction = async () => {
     try{
         const currentDirectory = resolve(process.cwd());
-        const files = await readdir(currentDirectory, { withFileTypes: true });
+        const files = await readdir(currentDirectory, { withFileTypes: true }); // If options.withFileTypes is set to true, the files array will contain <fs.Dirent> objects
 
         const filesToTable = files.map(file => {
             if (file.isFile()) return {Name: file.name, Type: 'file'}
