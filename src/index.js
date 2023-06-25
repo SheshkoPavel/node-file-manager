@@ -13,6 +13,7 @@ import { parseArguments } from './utils/index.js'
 import {
     commandLineFunction,
     lsFunction,
+    cdFunction,
  }  from './functions/index.js'
 
 const currentFile = fileURLToPath(import.meta.url);
@@ -37,8 +38,8 @@ eventEmitter.setMaxListeners(Infinity);
 
 eventEmitter
     .on('ls', lsFunction)
+    .on('cd', cdFunction)
 //     .on('up', upFunction)
-//     .on('cd', cdFunction)
 //     .on('cat', catFunction)
 //     .on('add', addFunction)
 //     .on('rn', rnFunction)

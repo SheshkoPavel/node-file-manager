@@ -1,4 +1,4 @@
-import { resolve, extname } from 'node:path'
+import { resolve } from 'node:path'
 import { readdir } from 'node:fs/promises'
 
 export const  lsFunction = async () => {
