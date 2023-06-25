@@ -3,7 +3,7 @@ import { dirname } from 'node:path'
 
 import readlinePromises from 'node:readline/promises'
 import EventEmitter from 'node:events'
-import { cpus, release, version, homedir } from 'node:os';
+import { homedir } from 'node:os';
 import { createReadStream, createWriteStream } from 'node:fs';
 import { createHash } from 'node:crypto';
 
@@ -19,6 +19,7 @@ import {
     cpFunction,
     mvFunction,
     rmFunction,
+    osFunction,
  }  from './functions/index.js'
 
 const currentFile = fileURLToPath(import.meta.url);
@@ -45,7 +46,7 @@ eventEmitter
     .on('cp', cpFunction)
     .on('mv', mvFunction)
     .on('rm', rmFunction)
-//     .on('os', osFunction)
+    .on('os', osFunction)
 //     .on('hash', hashFunction)
 //     .on('compress', compressFunction)
 //     .on('decompress', decompressFunction);
