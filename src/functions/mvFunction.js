@@ -7,7 +7,7 @@ import { ERROR_MESSAGE } from "../constants.js"
 import {
     isDirectory,
     isFile,
-    isFileExist,
+    isPathExist,
     printCurrentDirectory,
 } from "../utils/index.js";
 
@@ -17,7 +17,7 @@ export const mvFunction = async ([pathToFile, pathToNewDirectory]) => {
 
         const resolvedPathToFile = resolve(pathToFile);
 
-        if (! await isFileExist(resolvedPathToFile)) throw new Error();
+        if (! await isPathExist(resolvedPathToFile)) throw new Error();
 
         const isPathToFileIsFile = await isFile(resolvedPathToFile);
         const isPathToNewDirectoryIsDirectory = await isDirectory(pathToNewDirectory);

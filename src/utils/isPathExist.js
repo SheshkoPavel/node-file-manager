@@ -1,6 +1,6 @@
 import { access } from 'node:fs/promises'
 
-export const isFileExist = async (path) => {
+export const isPathExist = async (path) => {
     try {
         await access(path);
         return true

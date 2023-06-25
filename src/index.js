@@ -1,11 +1,6 @@
-import { fileURLToPath } from 'node:url'
-import { dirname } from 'node:path'
-
+import { homedir } from 'node:os';
 import readlinePromises from 'node:readline/promises'
 import EventEmitter from 'node:events'
-import { homedir } from 'node:os';
-import { createReadStream, createWriteStream } from 'node:fs';
-import { createHash } from 'node:crypto';
 
 import { parseArguments, printCurrentDirectory } from './utils/index.js'
 import {
@@ -24,9 +19,6 @@ import {
     compressFunction,
     decompressFunction,
  }  from './functions/index.js'
-
-const currentFile = fileURLToPath(import.meta.url);
-const currentDirectory = dirname(currentFile);
 
 process.chdir(homedir());
 

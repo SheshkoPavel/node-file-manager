@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto';
 import { ERROR_MESSAGE } from "../constants.js"
 import {
     isFile,
-    isFileExist,
+    isPathExist,
     printCurrentDirectory,
 } from "../utils/index.js";
 
@@ -14,7 +14,7 @@ export const hashFunction = async ([pathToFile]) => {
         if (!pathToFile) throw new Error();
 
         const resolvedPathToFile = resolve(pathToFile);
-        if (! await isFileExist(resolvedPathToFile)) throw new Error();
+        if (! await isPathExist(resolvedPathToFile)) throw new Error();
 
         const isPathToFileIsFile = await isFile(resolvedPathToFile);
         if (!isPathToFileIsFile) throw new Error();

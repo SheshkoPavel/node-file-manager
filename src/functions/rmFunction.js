@@ -4,7 +4,7 @@ import { rm } from 'node:fs/promises';
 import { ERROR_MESSAGE } from "../constants.js"
 import {
     isFile,
-    isFileExist,
+    isPathExist,
     printCurrentDirectory,
 } from "../utils/index.js";
 
@@ -14,7 +14,7 @@ export const rmFunction = async ([pathToFile]) => {
 
         const resolvedPathToFile = resolve(pathToFile);
 
-        if (! await isFileExist(resolvedPathToFile)) throw new Error();
+        if (! await isPathExist(resolvedPathToFile)) throw new Error();
 
         const isPathToFileIsFile = await isFile(resolvedPathToFile);
         if (!isPathToFileIsFile) throw new Error();

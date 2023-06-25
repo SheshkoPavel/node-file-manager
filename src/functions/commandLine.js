@@ -5,7 +5,6 @@ export function commandLineFunction (eventEmitter, line) {
     try {
         line = line.trim();
         let [operation, ...args] = line.split(' ');
-        console.log('operation <-------', operation);
 
         if (!availableOperations.includes(operation)) {
             throw new Error('Invalid input');
