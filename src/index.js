@@ -13,6 +13,7 @@ import {
     lsFunction,
     cdFunction,
     upFunction,
+    catFunction,
  }  from './functions/index.js'
 
 const currentFile = fileURLToPath(import.meta.url);
@@ -39,7 +40,7 @@ eventEmitter
     .on('ls', lsFunction)
     .on('cd', cdFunction)
     .on('up', upFunction)
-//     .on('cat', catFunction)
+    .on('cat', catFunction)
 //     .on('add', addFunction)
 //     .on('rn', rnFunction)
 //     .on('cp', cpFunction)
